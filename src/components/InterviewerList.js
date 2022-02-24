@@ -8,9 +8,6 @@ InterviewerList.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-
-
-
 export default function InterviewerList(props) {
 
   // const interviewersListItem = Object.values(props.interviewers).map(interviewer => {
@@ -26,6 +23,18 @@ export default function InterviewerList(props) {
   //   );
   // });
 
+  // const interviewers = props.interviewers.map((interviewer) => {
+  //   return (
+  //     <InterviewerListItem
+  //       key={interviewer.id}
+  //       name={interviewer.name}
+  //       avatar={interviewer.avatar}
+  //       selected={interviewer.id === props.value}
+  //       setInterviewer={() => props.setInterviewer(interviewer.id)}
+  //     />
+  //   );
+  // });
+
   const interviewers = props.interviewers.map((interviewer) => {
     return (
       <InterviewerListItem
@@ -33,7 +42,7 @@ export default function InterviewerList(props) {
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === props.value}
-        setInterviewer={() => props.setInterviewer(interviewer.id)}
+        setInterviewer={() => props.onChange(interviewer.id)}
       />
     );
   });
