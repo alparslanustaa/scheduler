@@ -17,6 +17,8 @@ import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
+import Form from "components/Appointment/Form";
+
 
 
 //Button stroies 
@@ -106,6 +108,7 @@ const interviewer = {
 storiesOf("InterviewerListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+
   })
   .add("Unselected", () => (
     <InterviewerListItem
@@ -190,4 +193,5 @@ storiesOf("InterviewerList", module)
   .add("Confirm", () => (<Confirm message="Delete the appointment?" onCancel={action("onCancel")} onConfirm={action("onConfirm")}/> ))
   .add("Status", () => (<Status message="Deleting!" />))
   .add("Error", () => (<Error message="Could not delete appointment" onClose={action("onClose")} />))
-
+  .add("Create", () => (<Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")} onSubmit={action("onSubmit")}/>))
+  .add("Edit", () => (<Form name="Bruce Wayne" interviewers={interviewers} interviewer={interviewer.id} onSave={action("onSave")} onCancel={action("onCancel")} onSubmit={action("onSubmit")} />))
