@@ -115,12 +115,19 @@ storiesOf("InterviewerListItem", module)
   //     setInterviewer={action("setInterviewer")}
   //   />
   // ));
+  // .add("Clickable", () => (
+  //   <InterviewerListItem
+  //     id={interviewer.id}
+  //     name={interviewer.name}
+  //     avatar={interviewer.avatar}
+  //     setInterviewer={event => action("setInterviewer")(interviewer.id)}
+  //   />
+  // ));
+
   .add("Clickable", () => (
-    <InterviewerListItem
-      id={interviewer.id}
-      name={interviewer.name}
-      avatar={interviewer.avatar}
-      setInterviewer={event => action("setInterviewer")(interviewer.id)}
+    <InterviewerList
+      interviewers={interviewers}
+      onChange={action("setInterviewer")}
     />
   ));
 
