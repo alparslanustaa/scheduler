@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Fragment } from 'react';
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
@@ -195,3 +195,20 @@ storiesOf("InterviewerList", module)
   .add("Error", () => (<Error message="Could not delete appointment" onClose={action("onClose")} />))
   .add("Create", () => (<Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")} onSubmit={action("onSubmit")}/>))
   .add("Edit", () => (<Form name="Bruce Wayne" interviewers={interviewers} interviewer={interviewer.id} onSave={action("onSave")} onCancel={action("onCancel")} onSubmit={action("onSubmit")} />))
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
+  
+  .add("Appointment Booked", () => (
+    <Fragment>
+      <Appointment
+        id={1}
+        time="4pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer }}
+      />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
