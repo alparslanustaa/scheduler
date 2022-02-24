@@ -13,15 +13,27 @@ InterviewerList.propTypes = {
 
 export default function InterviewerList(props) {
 
-  const interviewersListItem = Object.values(props.interviewers).map(interviewer => {
- 
+  // const interviewersListItem = Object.values(props.interviewers).map(interviewer => {
+  //     //props inteviewers showing undefiend using objects
+  //   return (
+  //     <InterviewerListItem
+  //       key={interviewer.id}
+  //       name={interviewer.name}
+  //       avatar={interviewer.avatar}
+  //       selected={interviewer.id === props.value}
+  //       setInterviewer={() => props.onChange(interviewer.id)}
+  //     />
+  //   );
+  // });
+
+  const interviewers = props.interviewers.map((interviewer) => {
     return (
       <InterviewerListItem
         key={interviewer.id}
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === props.value}
-        setInterviewer={() => props.onChange(interviewer.id)}
+        setInterviewer={() => props.setInterviewer(interviewer.id)}
       />
     );
   });
@@ -29,7 +41,7 @@ export default function InterviewerList(props) {
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
-      <ul className="interviewers__list">{interviewersListItem}</ul>
+      <ul className="interviewers__list">{interviewers}</ul>
     </section>
   );
 }
