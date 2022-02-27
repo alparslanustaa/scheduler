@@ -35,3 +35,24 @@ export const getInterview = (state, interview) => {
     }
   }
 };
+
+export const getInterviewersForDay = (state, day) => {
+  const dayObj = state.days.find((elem) => elem.name === day);
+
+  if (!dayObj) {
+    return [];
+  }
+
+  const interviewerIds = dayObj.interviewers;
+
+  const interviewersForDay = [];
+
+  for (const id in state.interviewers) {
+    if (interviewerIds.includes(Number(id))) {
+      interviewersForDay.push(state.interviewers[id]);
+    }
+  }
+
+  return interviewersForDay;
+};
+
