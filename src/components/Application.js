@@ -59,10 +59,6 @@ export default function Application(props) {
       .then(response => setState(state => ({ ...state, appointments })));
   }
 
-
-
-
-
   const appointmentsForDay = getAppointmentsForDay(state, state.day);
   const interviewersForDay = getInterviewersForDay(state, state.day);
 
