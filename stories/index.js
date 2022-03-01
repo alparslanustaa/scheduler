@@ -78,23 +78,6 @@ storiesOf("DayList", module)
     <DayList days={days} day={"Wednesday"} setDay={action("setDay")} />
   ));
 
-// storiesOf("DayList", module)
-//   .addParameters({
-//     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
-//   })
-//   .add("Monday", () => (
-//     <DayList days={days} value={"Monday"} onChange={action("setDay")} />
-//   ))
-//   .add("Tuesday", () => (
-//     <DayList days={days} value={"Tuesday"} onChange={action("setDay")} />
-//   ))
-//   .add("Wednesday", () => (
-//     <DayList days={days} value={"Wednesday"} onChange={action("setDay")} />
-//   ));
-
-  
-
-
 // InterviewerListItem Story
 
 
@@ -125,23 +108,7 @@ storiesOf("InterviewerListItem", module)
       selected
     />
   ))
-  // .add("Clickable", () => (
-  //   <InterviewerListItem
-  //     id={interviewer.id}
-  //     name={interviewer.name}
-  //     avatar={interviewer.avatar}
-  //     setInterviewer={action("setInterviewer")}
-  //   />
-  // ));
-  // .add("Clickable", () => (
-  //   <InterviewerListItem
-  //     id={interviewer.id}
-  //     name={interviewer.name}
-  //     avatar={interviewer.avatar}
-  //     setInterviewer={event => action("setInterviewer")(interviewer.id)}
-  //   />
-  // ));
-
+ 
   .add("Clickable", () => (
     <InterviewerList
       interviewers={interviewers}

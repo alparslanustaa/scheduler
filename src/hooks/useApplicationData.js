@@ -26,6 +26,8 @@ export default function useApplicationData() {
     });
   }, []);
 
+  ///////////// function to book an interview and remaining spots left ////////////////////////////
+
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -36,9 +38,29 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     }
-    return axios.put(`/api/appointments/${id}`, { interview })
-      .then(response => setState(state => ({ ...state, appointments })));
+
+    const foundDay = state.days.find((day) => day.appointments.includes(id));
+    const days = state.days.map((day, index) => {
+      if (
+        day.name === foundDay.name &&
+        state.appointments[id].interview === null
+      ) {
+        return { ...day, spots: day.spots - 1 };
+      } else {
+        return day;
+      }
+    });
+
+    ////// appointment day's spots remaining (+) ///////////////////////////////
+
+      return axios
+      .put(`http://localhost:8001/api/appointments/${id}`, appointment)
+      .then(() => {
+        setState({ ...state, appointments, days });
+      });
   }
+
+    //////function to cancel booked interviews && remaining spots left //////////////////////////////////////////
 
   function cancelInterview(id) {
     const appointment = {
@@ -51,8 +73,22 @@ export default function useApplicationData() {
       [id]: appointment
     }
 
-    return axios.delete(`/api/appointments/${id}`)
-      .then(response => setState(state => ({ ...state, appointments })));
+    const foundDay = state.days.find((day) => day.appointments.includes(id));
+    const days = state.days.map((day, index) => {
+      if (day.name === foundDay.name) {
+        return { ...day, spots: day.spots + 1 };
+      } else {
+        return day;
+      }
+    });
+
+    /////////// appointment day's spots remaining (-)//////////////////////////
+
+    return axios
+    .delete(`http://localhost:8001/api/appointments/${id}`, appointment)
+    .then(() => {
+      setState({ ...state, appointments, days });
+    });
   }
 
   return { state, setDay, bookInterview, cancelInterview }
