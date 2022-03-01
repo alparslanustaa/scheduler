@@ -20,6 +20,7 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 
+
 export default function Appointment(props) {
   // custom hook to handle the visual modes of <Appointment> component
   const { mode, transition, back } = useVisualMode(
@@ -35,16 +36,17 @@ export default function Appointment(props) {
     transition(SAVE);
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
-    .catch(() => {transition(ERROR_SAVE)}); 
+    .catch(() => transition(ERROR_SAVE, true)); 
   }
 
   function deleteInterview() {
-    transition(DELETE);
+    transition(DELETE, true);
     props.cancelInterview(props.id)
     .then(() => transition(EMPTY))
-    .catch(() => {transition(ERROR_DELETE)});
+    .catch(() => transition(ERROR_DELETE, true));
   }
 
+  
 
 
   return (
@@ -83,8 +85,8 @@ export default function Appointment(props) {
           onCancel={back}
         />
       )}
-        {mode === ERROR_SAVE && <Error message="SAVE fail!" onClose={() => transition(EMPTY)} />}
-        {mode === ERROR_DELETE && <Error message="DELETE fail!" onClose={() => transition(SHOW)}/>}
+        {mode === ERROR_SAVE && <Error message="SAVE fail!" onClose={back} />}
+        {mode === ERROR_DELETE && <Error message="DELETE fail!" onClose={back}/>}
 
     </article>
   );
