@@ -23,18 +23,15 @@ export default function Form(props) {
   }
 
   // empty student name and unselected interviewer should not save
-  function saveError() {
+
+  function validate() {
     if (name === "") {
-      setError("Name can't be blank.")
+      setError("Student name cannot be blank");
       return;
     }
-    if (interviewer === null) {
-      setError("Interviewer can't be unselected.")
-      return;
-    }
-    props.onSave(name, interviewer)
     setError("");
-  }
+    props.onSave(name, interviewer);
+  }  
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -47,6 +44,7 @@ export default function Form(props) {
             type="text"
             placeholder="Enter Student Name"
             onChange={(e) => setName(e.target.value)}
+            data-testid="student-name-input"
           />
         </form>
 
@@ -59,7 +57,7 @@ export default function Form(props) {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={() => cancel(name)}>Cancel</Button>
-          <Button confirm onClick={saveError}>Save</Button>
+          <Button confirm onClick={validate}>Save</Button>
         </section>
       </section>
     </main>
