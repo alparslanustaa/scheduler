@@ -48,6 +48,6 @@ Single-page application built with using React including.
 - React
 
 ## App views
-!["input-name"]()
-!["after-schedule"]()
-!["delete"]()
+!["input-name"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.18.52%20PM.png)
+!["after-schedule"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.19.25%20PM.png)
+!["delete"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.19.36%20PM.png)
