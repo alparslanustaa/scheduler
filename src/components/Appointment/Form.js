@@ -9,13 +9,13 @@ export default function Form(props) {
   const [name, setName] = useState(props.name || "")
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
-  
+
   //Add a reset() function to the Form component that sets student and interviewer to "".
   const reset = () => {
     setName("");
     setInterviewer(null);
   }
-  
+
   //Add a cancel function to the Form component that calls reset() and props.onCancel. We should also update our Form component so it's called when a user clicks the Cancel button.
   const cancel = () => {
     reset();
@@ -31,7 +31,7 @@ export default function Form(props) {
     }
     setError("");
     props.onSave(name, interviewer);
-  }  
+  }
 
   return (
     <main className="appointment__card appointment__card--create">
