@@ -5,6 +5,10 @@ Interview Scheduler App
 
 Interview Scheduler helps you to create schedules for your interviews. It has features of edit, delete & book interviews.  
 
+## App views
+!["input-name"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.18.52%20PM.png)
+!["after-schedule"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.19.25%20PM.png)
+!["delete"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.19.36%20PM.png)
 
 ## How to Setup
 1. Install all dependencies (npm install from Terminal) within project directory.
@@ -47,7 +51,3 @@ Single-page application built with using React including.
 - Express
 - React
 
-## App views
-!["input-name"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.18.52%20PM.png)
-!["after-schedule"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.19.25%20PM.png)
-!["delete"](https://github.com/alparslanustaa/scheduler/blob/master/docs/Screen%20Shot%202022-03-03%20at%206.19.36%20PM.png)
